@@ -11,7 +11,7 @@ Além da classificação, o sistema **gera uma resposta automática profissional
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Python 3**
+- **Python**
 - **Flask** *(Backend Web)*
 - **OpenAI API** *(Classificação + Respostas automatizadas)*
 - **PyPDF2** *(Leitura de arquivos PDF)*
