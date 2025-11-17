@@ -49,7 +49,7 @@ O objetivo é reduzir tempo operacional, evitar triagens manuais e ajudar equipe
 
 Antes de rodar o projeto, você precisa ter instalado:
 
-- [Python 3.9+](https://www.python.org/downloads/)
+- [Python 3+]
 - Pip (instalado junto ao Python)
 - Uma **API Key válida da OpenAI**  
   🔑 → https://platform.openai.com/account/api-keys
