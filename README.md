@@ -1,58 +1,160 @@
-# 📩 Classificador Inteligente de E-mails — IA + Python + Flask
+# 📩🧠 Classificador Inteligente de E-mails com IA  
+Aplicação Web criada com Python + Flask + OpenAI, capaz de analisar o conteúdo de um e-mail, 
+classificá-lo como **Produtivo** ou **Improdutivo**, e ainda sugerir **uma resposta automática profissional**.
 
-Este projeto consiste em uma aplicação web capaz de **classificar e-mails automaticamente** em duas categorias:
-
-- **Produtivo** — quando o e-mail requer ação, resposta, atualização ou suporte
-- **Improdutivo** — quando o e-mail não exige ação imediata, como mensagens de cortesia ou felicitações
-
-Além da classificação, o sistema **gera uma resposta automática profissional** baseada no conteúdo do e-mail, utilizando Inteligência Artificial.
+O objetivo é reduzir tempo operacional, evitar triagens manuais e ajudar equipes com grande volume de mensagens diárias.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Funcionalidades
 
-- **Python**
-- **Flask** *(Backend Web)*
-- **OpenAI API** *(Classificação + Respostas automatizadas)*
-- **PyPDF2** *(Leitura de arquivos PDF)*
-- **HTML + Bootstrap** *(Interface Web)*
-
----
-
-## 🧠 Como Funciona
-
-1. O usuário envia um arquivo `.txt` ou `.pdf` **ou** cola o texto do e-mail
-2. O backend limpa e pré-processa o texto
-3. O sistema envia o texto para a **IA da OpenAI**
-4. A IA devolve um **JSON com categoria e resposta sugerida**
-5. A interface exibe o resultado em tempo real
+✔ Upload de arquivos `.txt` ou `.pdf`  
+✔ Entrada de texto manual  
+✔ Pré-processamento simples (NLP) para limpeza de dados  
+✔ Classificação automática via Inteligência Artificial  
+✔ Geração de resposta automática pronta para uso  
+✔ Interface simples e intuitiva  
+✔ Compatível com deploy na nuvem (Render)
 
 ---
 
-## 🖥️ Rodando Localmente
+## 🛠 Tecnologias Utilizadas
 
-### Pré-requisitos:
-- Python 3 instalado
-- Chave da API da OpenAI
-- Virtualenv (opcional, mas recomendado)
+| Componente | Tecnologia |
+|------------|------------|
+| Linguagem | Python |
+| Framework Web | Flask |
+| IA | OpenAI API |
+| Leitura de PDF | PyPDF2 |
+| UI / Frontend | HTML + Bootstrap |
+| Deploy sugerido | Render |
 
-### Passos:
+---
+
+## 📁 Estrutura do Projeto
+
+```
+📦 email-ai-classifier
+├── app.py
+├── requirements.txt
+├── .env                 # NÃO deve ser enviado ao GitHub
+├── Procfile             # Usado apenas para deploy (Render)
+└── templates
+    └── index.html
+```
+
+---
+
+## ⚙️ Pré-requisitos
+
+Antes de rodar o projeto, você precisa ter instalado:
+
+- [Python 3.9+](https://www.python.org/downloads/)
+- Pip (instalado junto ao Python)
+- Uma **API Key válida da OpenAI**  
+  🔑 → https://platform.openai.com/account/api-keys
+
+Caso ainda não tenha chave, crie uma gratuita com limite de uso iniciais.
+
+---
+
+## 📌 1. Clonar o Repositório
+
+Abra o terminal e execute:
 
 ```bash
-# 1. Clone o repositório
-git clone https://github.com/<seu-usuario>/<seu-repo>.git
-
-# 2. Acesse a pasta do projeto
+git clone https://github.com/diogoweyne/email-ai-classifier
 cd email-ai-classifier
+```
 
-# 3. Crie um ambiente virtual
+---
+
+## 🔧 2. Criar um Ambiente Virtual (recomendado)
+
+```bash
 python -m venv .venv
+```
 
-# 4. Ative o ambiente virtual
-# Windows
-.\.venv\Scripts\activate
-# Linux/Mac
+### Ativando o ambiente virtual
+
+**Windows PowerShell**
+```bash
+.\.venv\Scripts\Activate.ps1
+```
+
+**Linux / Mac**
+```bash
 source .venv/bin/activate
+```
 
-# 5. Instale as dependências
-pip install -r req
+---
+
+## 📦 3. Instalar Dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🔐 4. Criar o arquivo `.env` com sua API Key
+
+Atenção: **esse arquivo não vai para o GitHub por segurança**.
+
+Crie o arquivo `.env` na raiz do projeto e adicione:
+
+```env
+OPENAI_API_KEY=sua-chave-aqui
+
+```
+
+## ▶️ 5. Executar o projeto localmente
+
+No terminal ainda dentro da pasta do projeto:
+
+```bash
+python app.py
+```
+
+Se funcionar corretamente, aparecerá:
+
+```
+ * Running on http://127.0.0.1:5000
+```
+
+Agora abra no navegador:
+
+👉 http://127.0.0.1:5000/
+
+---
+
+## 🧪 6. Testes sugeridos
+
+### Teste Produtivo
+```
+Olá, podem me informar o status da minha solicitação de ressarcimento?
+```
+
+### Teste Improdutivo
+```
+Passando aqui apenas para desejar um ótimo final de semana!
+```
+
+### Teste via Upload PDF/TXT
+Envie um documento curto com texto simples.
+
+---
+
+## 🌐 Deploy (opcional) — Render
+
+1. Subir o projeto para GitHub  
+2. Criar arquivo `Procfile` com:  
+```
+web: gunicorn app:app
+```
+3. Acessar https://render.com  
+4. Criar Web Service usando seu repositório  
+5. Adicionar variável de ambiente:  
+```
+OPENAI_API_KEY = sua-chave
+```
